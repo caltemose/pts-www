@@ -5,6 +5,7 @@ const gulpif = require('gulp-if')
 const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const cleanCSS = require('gulp-clean-css')
+const imagemin = require('gulp-imagemin')
 const browsersync = require('browser-sync').create()
 
 const _src = 'src/'
