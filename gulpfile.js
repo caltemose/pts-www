@@ -64,6 +64,14 @@ function css () {
 		.pipe(browsersync.stream())
 }
 
+function images () {
+	return src(config.images.src)
+		.pipe(changed(config.images.dest))
+		.pipe(gulpif(isProductionEnv, imagemin()))
+		.pipe(dest(config.images.dest))
+		.pipe(browsersync.stream())
+}
+
 function serve (cb) {
 	browsersync.init({
 		server: { baseDir: './' + config.dest },
@@ -77,11 +85,12 @@ function serve (cb) {
 function watchAll () {
 	watch(config.pug.src, html)
 	watch(config.sass.src, css)
+	watch(config.images.src, images)
 }
 
 exports.build = series(
 	clean,
-	parallel(html, css)
+	parallel(html, css, images)
 )
 
 exports.dev = series(
