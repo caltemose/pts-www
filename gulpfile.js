@@ -7,6 +7,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
 const browsersync = require('browser-sync').create()
+const changed = require('gulp-changed')
 
 const _src = 'src/'
 const _dest = 'dist'
