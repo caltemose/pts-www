@@ -8,6 +8,7 @@ const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
 const browsersync = require('browser-sync').create()
 const changed = require('gulp-changed')
+const ghpages = require('gulp-gh-pages')
 
 const _src = 'src/'
 const _dest = 'dist'
@@ -99,6 +100,10 @@ exports.dev = series(
 	exports.build,
 	series(serve, watchAll)
 )
+
+exports.ghpages = () => {
+	return src('./dist/**/*').pipe(ghpages())
+}
 
 exports.html = html
 exports.css = css

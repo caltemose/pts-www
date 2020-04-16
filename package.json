@@ -7,7 +7,8 @@
     "html": "gulp html",
     "css": "gulp css",
     "build": "gulp build",
-    "start": "gulp dev"
+    "start": "gulp dev",
+    "ghpages": "gulp ghpages"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-changed": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-pug": "^4.0.1",
