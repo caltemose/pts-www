@@ -11,7 +11,7 @@ const changed = require('gulp-changed')
 const ghpages = require('gulp-gh-pages')
 
 const _src = 'src/'
-const _dest = 'dist'
+const _dest = 'docs'
 
 const config = {
 	port: 4300,
@@ -100,10 +100,6 @@ exports.dev = series(
 	exports.build,
 	series(serve, watchAll)
 )
-
-exports.ghpages = () => {
-	return src('./dist/**/*').pipe(ghpages())
-}
 
 exports.html = html
 exports.css = css
