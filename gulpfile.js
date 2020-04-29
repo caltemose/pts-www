@@ -18,7 +18,7 @@ const config = {
 	src: _src,
 	dest: _dest,
 	pug: {
-		src: [_src + 'html/**/*.pug', '!' + _src + 'html/_templates/**/*', '!' + _src + 'html/_includes/**/*'],
+		src: [_src + 'html/**/*.pug', '!' + _src + 'html/_templates/**/*'],
 		options: { pretty: true }
 	},
 	sass: {
