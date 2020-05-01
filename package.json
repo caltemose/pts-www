@@ -4,11 +4,9 @@
   "description": "pts marketing site",
   "main": "index.js",
   "scripts": {
-    "html": "gulp html",
-    "css": "gulp css",
     "build": "gulp build",
-    "start": "gulp dev",
-    "ghpages": "gulp ghpages"
+    "build:production": "NODE_ENV='production' gulp build",
+    "start": "gulp dev"
   },
   "repository": {
     "type": "git",
