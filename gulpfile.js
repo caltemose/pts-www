@@ -8,7 +8,14 @@ const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
 const browsersync = require('browser-sync').create()
 const changed = require('gulp-changed')
-const ghpages = require('gulp-gh-pages')
+
+const rollupEach = require('gulp-rollup-each')
+const rollupBuble = require('@rollup/plugin-buble')
+const globals = require('rollup-plugin-node-globals')
+const builtins = require('rollup-plugin-node-builtins')
+const resolve = require('@rollup/plugin-node-resolve')
+const commonjs = require('@rollup/plugin-commonjs')
+const uglify = require('gulp-uglify')
 
 const _src = 'src/'
 const _dest = 'docs'
@@ -18,7 +25,7 @@ const config = {
 	src: _src,
 	dest: _dest,
 	pug: {
-		src: [_src + 'html/**/*.pug', '!' + _src + 'html/_templates/**/*'],
+		src: [_src + 'html/**/*.pug', '!' + _src + 'html/_templates/**/*', '!' + _src + 'html/_includes/**/*'],
 		options: { pretty: true }
 	},
 	sass: {
@@ -27,7 +34,7 @@ const config = {
 	},
 	js: {
 		src: [ _src + 'assets/js/pages/**/*.js' ],
-		dest: _dest + 'assets/js'
+		dest: _dest + '/assets/js'
 	},
 	images: {
 		src: _src + 'assets/img/**/*',
@@ -67,6 +74,32 @@ function css () {
 		.pipe(browsersync.stream())
 }
 
+function js () {
+    return src(config.js.src)
+        .pipe(
+            rollupEach(
+                {
+                    plugins: [
+                        rollupBuble({ target: { ie: 11 } }),
+                        resolve({
+                            jsnext: true,
+                            main: true,
+                            browser: true
+                        }),
+                        commonjs(),
+                        globals(),
+                        builtins()
+                    ],
+                    isCache: true
+                },
+                { format: 'iife' }
+            )
+        )
+        .pipe(gulpif(isProductionEnv, uglify()))
+        .pipe(dest(config.js.dest))
+        .pipe(browsersync.stream())
+}
+
 function images () {
 	return src(config.images.src)
 		.pipe(changed(config.images.dest))
@@ -87,13 +120,16 @@ function serve (cb) {
 
 function watchAll () {
 	watch(config.pug.src, html)
+	watch(_src + 'html/_includes/**/*', html)
 	watch(config.sass.src, css)
 	watch(config.images.src, images)
+	watch(config.js.src, js)
+	watch(_src + 'assets/js/modules/**/*', js)
 }
 
 exports.build = series(
 	clean,
-	parallel(html, css, images)
+	parallel(html, css, images, js)
 )
 
 exports.dev = series(
@@ -103,3 +139,4 @@ exports.dev = series(
 
 exports.html = html
 exports.css = css
+exports.js = js

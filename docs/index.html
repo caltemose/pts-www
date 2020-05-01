@@ -36,15 +36,15 @@
     <section class="contact-form u-container">
       <h2>Ready to get in touch?</h2>
       <p>All fields are required.</p>
-      <form id="contact-form">
+      <form id="contact-form" method="POST">
         <label for="contact-name"><span class="input-label">Your Name:</span>
-          <input type="text" id="contact-name" placeholder="your name here" required><span class="input-error">Please enter your full name in the field above.</span>
+          <input type="text" id="contact-name" placeholder="your name here" required value="chad"><span class="input-error">Please enter your full name in the field above.</span>
         </label>
         <label for="contact-email"><span class="input-label">Your Email Address:</span>
-          <input type="email" id="contact-email" placeholder="your email here" required><span class="input-error">Please enter a valid email address in the field above.</span>
+          <input type="email" id="contact-email" placeholder="your email here" required value="a@b.co"><span class="input-error">Please enter a valid email address in the field above.</span>
         </label>
         <label for="contact-street"><span class="input-label">Your Street Address:</span>
-          <input type="text" id="contact-street" placeholder="your street address here" required><span class="input-error">Please enter your street address in the field above.</span>
+          <input type="text" id="contact-street" placeholder="your street address here" required value="edgewood"><span class="input-error">Please enter your street address in the field above.</span>
         </label>
         <input type="submit" name="submit" value="Submit">
       </form>
@@ -57,5 +57,6 @@
         </div>
       </div>
     </footer>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>
