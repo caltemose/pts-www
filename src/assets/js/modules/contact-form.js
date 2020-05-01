@@ -9,10 +9,6 @@ export default class ContactForm {
 	}
 	
 	init () {
-		/*
-		turn on validation
-		enable submit button and disable default behavior
-		*/
 		// get form element references
 		this.$name = this.element.querySelector('[id="contact-name"]');
 		this.$email = this.element.querySelector('[id="contact-email"]');
