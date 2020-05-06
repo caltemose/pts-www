@@ -1,16 +1,15 @@
 import axios from "axios"
 
-
-const TESTING = 1; 
-const ENDPOINT = TESTING ? 'https://reqres.in/api/users?delay=2' : 'http://n8-vm1.eastus.cloudapp.azure.com:90/api/status/1/customers';
-
 export default class ContactForm {
     constructor (el) {
 		this.element = el;
-		console.log('ContactForm element = ' + el);
 	}
 	
-	init () {
+	init (testing) {
+		this.testing = testing;
+		if (testing) console.log('form is in TESTING mode');
+		else console.log('form is in LIVE mode');
+
 		// get form element references
 		this.$name = this.element.querySelector('[id="contact-name"]');
 		this.$email = this.element.querySelector('[id="contact-email"]');
@@ -23,6 +22,10 @@ export default class ContactForm {
 		// attach submit behavior
 		this.onSubmit = this.onSubmit.bind(this);
 		this.element.addEventListener('submit', this.onSubmit);
+	}
+
+	getEndpoint () {
+		return this.testing ? 'https://reqres.in/api/users?delay=2' : 'http://n8-vm1.eastus.cloudapp.azure.com:90/api/status/1/customers';
 	}
 
 	onSubmit (event) {
@@ -54,9 +57,11 @@ export default class ContactForm {
 	submitAjaxForm () {
 		const $loadingOverlay = this.element.querySelector('.loading-overlay');
 		this.showElement($loadingOverlay);
-		if (TESTING) {
+		const endpoint = this.getEndpoint();
+
+		if (this.testing) {
 			axios
-				.post(ENDPOINT, this.getFormJson())
+				.post(endpoint, this.getFormJson())
 				.then(res => {
 					console.log(res)
 					this.hideElement(this.$stateDefault);
@@ -66,7 +71,7 @@ export default class ContactForm {
 				.catch(err => console.error(err))
 		} else {
 			axios
-				.get(ENDPOINT)
+				.get(endpoint)
 				.then(res => {
 					this.hideElement(this.$stateDefault);
 					this.showElement(this.$stateSuccess);
