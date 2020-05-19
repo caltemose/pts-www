@@ -25,7 +25,7 @@ export default class ContactForm {
 	}
 
 	getEndpoint () {
-		return this.testing ? 'https://reqres.in/api/users?delay=2' : 'http://n8-vm1.eastus.cloudapp.azure.com:90/api/status/1/customers';
+		return this.testing ? 'https://reqres.in/api/users?delay=2' : 'http://www.atlpropertytax.com:90/api/status/1/customers';
 	}
 
 	onSubmit (event) {
@@ -59,7 +59,7 @@ export default class ContactForm {
 		this.showElement($loadingOverlay);
 		const endpoint = this.getEndpoint();
 
-		if (this.testing) {
+		if (!this.testing) {
 			axios
 				.post(endpoint, this.getFormJson())
 				.then(res => {
