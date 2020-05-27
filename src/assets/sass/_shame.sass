@@ -1,22 +1,100 @@
 section
-	margin: 1em 0
+	margin: 0
 	padding: 1em 0
-	border: 1px solid #ccc
+
+	&.hero
+		border: none
 
 .hero
-	padding: 3em 0
+	margin: 0 auto
+	padding: 2em 1em
+	background-color: #f7f7f7
+
+	@media (min-width: $bp-medium)
+		padding: 3em 1em
+
+.hero-container
+	width: 100%
+	@media (min-width: $bp-medium)
+		display: flex
+		justify-content: center
+
+
+.hero-copy
+	@media (min-width: $bp-medium)
+		flex: 0 1 40%
+		padding-right: 20px
+
+	@media (min-width: $bp-large)
+		flex: 0 1 30%
+
+.hero-graphic
+	@media (min-width: $bp-medium)
+		flex: 0 1 50%
+		padding-left: 2em
+		padding-top: 0.5em
+
+	@media (min-width: $bp-large)
+		flex: 0 1 33%
+
+
+	img
+		width: 100%
+
+.we-can-help
+	background-color: #e0e6f2 // #f7f7f7
+
+.how-it-works
+	background-color: #f1f4fb // #eff3fb // #ccd5e6
+
+.what-you-receive
+	background-color: #e0e6f2
+
+.ready-for-more
+	padding-bottom: 2em
+
+	p
+		font-size: 0.9em
+
+	@media (min-width: $bp-medium)
+		padding-bottom: 3em
+
+		h2
+			text-align: center
+
+		p
+			// text-align: center
 
 .col-3
+	display: flex
+	flex-wrap: wrap
+	justify-content: left
+	align-items: stretch
+	align-content: flex-start
+	
 	list-style: none
 	margin: 0
 	padding: 0
-	display: flex
-	
+
+	@media (min-width: $bp-medium)
+		justify-content: center
 
 	li
+		flex: 0 1 50%
+		// display: inline-block
+		// width: 48%
 		margin: 0
 		padding: 0 1em 0 0
 		font-size: 0.9em
+
+		@media (min-width: $bp-medium)
+			flex: 0 1 30%
+	
+	li:last-child
+		padding-top: 1.5em
+
+		@media (min-width: $bp-medium)
+			padding-top: 0
 
 	.button
 		display: block
@@ -31,3 +109,4 @@ section
 	background-color: $link-color
 	&:hover
 		background-color: $link-color-hover
+

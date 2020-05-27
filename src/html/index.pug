@@ -1,35 +1,40 @@
 extends _templates/layout
 
 block title
-	title PTS Home
+	title Atlanta Property Tax Solutions
 
 block contents
 	main
 		section.hero
-			.u-container
+			.hero-container
 				.hero-copy
 					h1 See a sharp rise in your property taxes?
 
 					p Looking to reduce them but not sure where to start? We can help.
 
 				.hero-graphic
-					p Whatever punchy graphic here
+					img(src="/assets/img/2019-property-tax-increases-by-neighborhood-crop-grey.png" alt="Atlanta 2019 property tax increases by neighborhood")
 		
 		section
-			.u-container
+			.u-container.u-copy-col
 				p 
 					| You've seen the mailers from property tax consulting firms. These firms charge you up to  
 					|
 					strong 50% of your annual savings
 					|
-					| to represent you in a Board of Equalization (BOE) hearing.
+					| for their services.
+					//- | to represent you in a Board of Equalization (BOE) hearing.
 				
-				p Do you want to reduce your property taxes but prefer to avoid the hefty fee? Our process is better suited to those of you who want to save more money.
+				p 
+					| Do you want to reduce your property taxes but prefer to avoid the hefty fee? 
+					|
+					strong Our process is better suited to those of you who want to save more money.
 
-				p Are you willing to represent yourself at the five-minute BOE hearing? We'll prepare you for success at this meeting.
+				//- p Are you willing to represent yourself at the five-minute BOE hearing? We'll prepare you for success at this meeting.
+				p If you are willing to represent yourself at the five-minute BOE hearing, our process can work for you. We'll prepare you for success at this meeting.
 
-		section
-			.u-container
+		section.we-can-help
+			.u-container.u-copy-col
 				h2 We Can Help
 
 				p We do the heavy lifting and provide you with what you need to succeed at your appeals appointment.
@@ -37,8 +42,8 @@ block contents
 				p We customize the solution for your situation to maximize the probability of appealing your rate increase.
 
 
-		section
-			.u-container
+		section.how-it-works
+			.u-container.u-copy-col
 				h2 How It Works:
 				.u-container
 					ol
@@ -46,8 +51,8 @@ block contents
 						li We analyze the data.
 						li We create a report and presentation for you to use at the BOE hearing.
 			
-		section
-			.u-container
+		section.what-you-receive
+			.u-container.u-copy-col
 				h2 Here's what you'll receive:
 
 				p This short paragraph is about the report you'll receive.
@@ -61,7 +66,7 @@ block contents
 					li Photos and data for selected comparable properties.
 
 
-		section
+		section.ready-for-more
 			.u-container
 				h2 Ready for more?
 				
@@ -76,7 +81,7 @@ block contents
 
 					li
 						p Get in touch to start the conversation.
-						a.button(href="#") Contact Us
+						a.button(href="#contactForm") Contact Us
 
 
 block scripts
