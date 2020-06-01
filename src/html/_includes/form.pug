@@ -2,30 +2,34 @@ section.contact-form#contactForm
 	.u-container.u-copy-col
 		h2 Ready to get in touch?
 
-		.state-default
+		p 
+			| Send an email to 
+			a(href="mailto:advisors@atlpropertytax.com") advisors@atlpropertytax.com
 
-			p All fields are required.
+		//- .state-default
 
-			form#contact-form(method="POST")
-				label(for="contact-name")
-					span.input-label Your Name:
-					input(type="text" id="contact-name" placeholder="your name here" required)
-					span.input-error Please enter your full name in the field above.
+		//- 	p All fields are required.
 
-				label(for="contact-email")
-					span.input-label Your Email Address:
-					input(type="email" id="contact-email" placeholder="your email here" required)
-					span.input-error Please enter a valid email address in the field above.
+		//- 	form#contact-form(method="POST")
+		//- 		label(for="contact-name")
+		//- 			span.input-label Your Name:
+		//- 			input(type="text" id="contact-name" placeholder="your name here" required)
+		//- 			span.input-error Please enter your full name in the field above.
+
+		//- 		label(for="contact-email")
+		//- 			span.input-label Your Email Address:
+		//- 			input(type="email" id="contact-email" placeholder="your email here" required)
+		//- 			span.input-error Please enter a valid email address in the field above.
 				
-				label(for="contact-street")
-					span.input-label Your Street Address:
-					input(type="text" id="contact-street" placeholder="your street address here" required)
-					span.input-error Please enter your street address in the field above.
+		//- 		label(for="contact-street")
+		//- 			span.input-label Your Street Address:
+		//- 			input(type="text" id="contact-street" placeholder="your street address here" required)
+		//- 			span.input-error Please enter your street address in the field above.
 
-				input(type="submit" name="submit" value="Submit")
+		//- 		input(type="submit" name="submit" value="Submit")
 
-		.loading-overlay
-			p loading...
+		//- .loading-overlay
+		//- 	p loading...
 
-		.state-success
-			p Thanks for your info. We'll be in touch soon.
+		//- .state-success
+		//- 	p Thanks for your info. We'll be in touch soon.
