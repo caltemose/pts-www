@@ -13,7 +13,8 @@ block contents
 					p Looking to reduce them but not sure where to start? We can help.
 
 				.hero-graphic
-					img(src="/assets/img/2019-property-tax-increases-by-neighborhood-crop-grey.png" alt="Atlanta 2019 property tax increases by neighborhood")
+					//- img(src="/assets/img/2019-property-tax-increases-by-neighborhood-crop-grey.png" alt="Atlanta 2019 property tax increases by neighborhood")
+					#hero-dynamic
 		
 		section
 			.u-container.u-copy-col
@@ -85,7 +86,8 @@ block contents
 
 
 block scripts
-	script(src="./assets/js/index.js")
+	script(src="https://cdn.plot.ly/plotly-latest.min.js")
+	script(src="/assets/js/index.js")
 		
 
 		
