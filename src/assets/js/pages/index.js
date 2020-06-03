@@ -8,7 +8,7 @@ if (urlParams) {
 
 const $form = new ContactForm(document.querySelector('.contact-form'));
 $form.init(testing);
-
+/*
 // const $heroChart = document.getElementById('hero-dynamic');
 
 const data = [
@@ -29,7 +29,8 @@ const data = [
 ];
 
 const layout = {
-	showlegend: false
+	showlegend: false,
+	paper_bgcolor: '#f7f7f7'
 };
 
 const config = {
@@ -38,6 +39,7 @@ const config = {
 };
 
 if (Plotly) Plotly.newPlot('hero-dynamic', data, layout, config);
+*/
 
 /*
 Morningside-Lenox Park	6%

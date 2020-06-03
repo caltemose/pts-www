@@ -11,7 +11,7 @@ section
 	background-color: #f7f7f7
 
 	@media (min-width: $bp-medium)
-		padding: 3em 1em
+		padding: 0 1em 1em
 
 .hero-container
 	width: 100%
@@ -24,15 +24,24 @@ section
 	@media (min-width: $bp-medium)
 		flex: 0 1 40%
 		padding-right: 20px
+		padding-top: 3em
 
 	@media (min-width: $bp-large)
 		flex: 0 1 30%
+		padding-top: 5em
 
 .hero-graphic
+	margin-top: 2em
+
+	h5
+		font-family: $base-font-sans-serif
+		margin: 0
+		text-align: center
+
 	@media (min-width: $bp-medium)
-		flex: 0 1 50%
+		flex: 0 1 40%
+		margin-top: 0
 		padding-left: 2em
-		padding-top: 0.5em
 
 	// @media (min-width: $bp-large)
 	// 	flex: 0 1 33%
